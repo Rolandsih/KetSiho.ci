@@ -53,6 +53,56 @@
             margin-top: 0.7rem;
             letter-spacing: 0.5px;
         }
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.9em;
+            margin: 2.2rem 0 0.5rem 0;
+            padding-bottom: 0.6rem;
+        }
+        .contact-buttons {
+            display: flex;
+            gap: 1.2em;
+        }
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            padding: 0.65em 1.15em;
+            background: linear-gradient(90deg, #ffe082 60%, #ffd700 100%);
+            color: #964800;
+            border-radius: 2em;
+            font-weight: 600;
+            font-size: 1.07em;
+            border: none;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(255, 215, 0, 0.08);
+            transition: background 0.18s, box-shadow 0.18s;
+        }
+        .contact-btn:hover {
+            background: linear-gradient(90deg, #ffd700 60%, #ffe082 100%);
+            box-shadow: 0 4px 16px rgba(255, 215, 0, 0.16);
+        }
+        .contact-icon {
+            font-size: 1.25em;
+        }
+        .facebook-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5em;
+            height: 2.5em;
+            border-radius: 50%;
+            background: #4267B2;
+            color: white;
+            text-decoration: none;
+            font-size: 1.45em;
+            transition: background 0.16s;
+        }
+        .facebook-link:hover {
+            background: #29487d;
+        }
         main {
             flex: 1;
             padding: 1.3rem 0.4rem 0.7rem 0.4rem;
@@ -130,6 +180,14 @@
             letter-spacing: 0.4px;
             font-weight: 500;
         }
+        .by-signature {
+            color: #8b5c00;
+            font-size: 1.02em;
+            font-weight: 700;
+            margin-top: 0.5em;
+            letter-spacing: 0.6px;
+            opacity: 0.75;
+        }
         .menu-section:before {
             content: "";
             position: absolute;
@@ -155,6 +213,9 @@
             header {
                 padding: 1.2rem 0.5rem 1.1rem 0.5rem;
             }
+            .contact-section {
+                gap: 0.6em;
+            }
         }
     </style>
 </head>
@@ -163,6 +224,24 @@
         <h1>Le Graya des anges</h1>
         <div class="subtitle">🌴 Découvrez notre menu africain maison 🌴</div>
     </header>
+
+    <div class="contact-section">
+        <div class="contact-buttons">
+            <a class="contact-btn" href="tel:0173280636">
+                <span class="contact-icon">📞</span> 01 73 28 06 36
+            </a>
+            <a class="contact-btn" href="tel:0777995828">
+                <span class="contact-icon">📞</span> 07 77 99 58 28
+            </a>
+        </div>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61574053164241&mibextid=ZbWKwL" target="_blank" title="Facebook">
+            <svg viewBox="0 0 32 32" width="1.3em" height="1.3em" fill="currentColor" aria-hidden="true">
+                <circle cx="16" cy="16" r="16" fill="#4267B2"/>
+                <path d="M21.5 16h-3v9h-3v-9h-2v-3h2v-2c0-1.7 1-3 3-3h2v3h-2v2h3l-1 3z" fill="#fff"/>
+            </svg>
+        </a>
+    </div>
+
     <main>
         <section class="menu-section">
             <h2><span class="icon">🍲</span> Nos Kedjenou</h2>
@@ -328,6 +407,7 @@
     </main>
     <footer>
         <p>© 2025 Le Graya des anges – Saveurs &amp; Authenticité</p>
+        <div class="by-signature">by Le Graya des anges</div>
     </footer>
     <script>
         // JS prêt pour animations ou fonctionnalités si besoin
