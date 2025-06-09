@@ -15,6 +15,8 @@
             --text: #2d1a05;
             --accent: #F57C00;
             --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+            --btn-bar: #ff9800;
+            --btn-maquis: #43a047;
         }
         html, body {
             margin: 0;
@@ -57,7 +59,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.9em;
+            gap: 1em;
             margin: 2.2rem 0 0.5rem 0;
             padding-bottom: 0.6rem;
         }
@@ -68,40 +70,28 @@
         .contact-btn {
             display: flex;
             align-items: center;
-            gap: 0.5em;
-            padding: 0.65em 1.15em;
-            background: linear-gradient(90deg, #ffe082 60%, #ffd700 100%);
-            color: #964800;
+            gap: 0.7em;
+            padding: 0.78em 1.5em;
+            background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+            color: #fff;
             border-radius: 2em;
-            font-weight: 600;
-            font-size: 1.07em;
+            font-weight: 700;
+            font-size: 1.13em;
             border: none;
             text-decoration: none;
-            box-shadow: 0 2px 12px rgba(255, 215, 0, 0.08);
-            transition: background 0.18s, box-shadow 0.18s;
+            box-shadow: 0 3px 14px rgba(255, 184, 28, 0.13);
+            transition: background 0.18s, box-shadow 0.18s, transform 0.12s;
+            cursor: pointer;
+            outline: none;
         }
-        .contact-btn:hover {
-            background: linear-gradient(90deg, #ffd700 60%, #ffe082 100%);
-            box-shadow: 0 4px 16px rgba(255, 215, 0, 0.16);
+        .contact-btn:hover, .contact-btn:focus {
+            background: linear-gradient(90deg, var(--secondary) 60%, var(--primary) 100%);
+            box-shadow: 0 6px 18px rgba(255, 184, 28, 0.18);
+            transform: translateY(-2px) scale(1.04);
         }
         .contact-icon {
-            font-size: 1.25em;
-        }
-        .facebook-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.5em;
-            height: 2.5em;
-            border-radius: 50%;
-            background: #4267B2;
-            color: white;
-            text-decoration: none;
-            font-size: 1.45em;
-            transition: background 0.16s;
-        }
-        .facebook-link:hover {
-            background: #29487d;
+            font-size: 1.33em;
+            filter: drop-shadow(0 1px 2px #ffffff44);
         }
         main {
             flex: 1;
@@ -140,8 +130,8 @@
         }
         .menu-section li {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             padding: 0.73rem 0;
             border-bottom: 1px solid #ffe0b2a8;
             font-size: 1.11rem;
@@ -149,20 +139,45 @@
         .menu-section li:last-child {
             border-bottom: none;
         }
+        .dish-row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
         .dish {
             font-weight: 500;
             color: var(--text);
             text-shadow: 0 1px 2px rgba(255, 223, 112, 0.04);
+            flex: 1 1 auto;
         }
         .price {
             font-weight: 700;
             color: var(--accent);
-            margin-left: 1.5rem;
             background: linear-gradient(90deg, #fffde4, #ffd700a1 80%);
             padding: 0.18em 0.75em;
             border-radius: 1em;
             box-shadow: 0 2px 8px rgba(255, 215, 0, 0.06);
             font-size: 1.06em;
+            margin-left: 1.3em;
+            white-space: nowrap;
+        }
+        .price-press {
+            display: flex;
+            gap: 0.7em;
+        }
+        .press-label {
+            font-size: 0.98em;
+            font-weight: 600;
+            background: var(--btn-bar);
+            color: #fff;
+            padding: 0.13em 0.7em;
+            border-radius: 1em;
+            margin-right: 0.4em;
+        }
+        .press-label.maquis {
+            background: var(--btn-maquis);
+            margin-left: 0.4em;
         }
         .pasta-title {
             font-weight: 600;
@@ -228,186 +243,137 @@
     <div class="contact-section">
         <div class="contact-buttons">
             <a class="contact-btn" href="tel:0173280636">
-                <span class="contact-icon">📞</span> 01 73 28 06 36
+                <span class="contact-icon">📱</span>
+                01 73 28 06 36
             </a>
             <a class="contact-btn" href="tel:0777995828">
-                <span class="contact-icon">📞</span> 07 77 99 58 28
+                <span class="contact-icon">📱</span>
+                07 77 99 58 28
             </a>
         </div>
-        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61574053164241&mibextid=ZbWKwL" target="_blank" title="Facebook">
-            <svg viewBox="0 0 32 32" width="1.3em" height="1.3em" fill="currentColor" aria-hidden="true">
-                <circle cx="16" cy="16" r="16" fill="#4267B2"/>
-                <path d="M21.5 16h-3v9h-3v-9h-2v-3h2v-2c0-1.7 1-3 3-3h2v3h-2v2h3l-1 3z" fill="#fff"/>
-            </svg>
-        </a>
     </div>
 
     <main>
         <section class="menu-section">
             <h2><span class="icon">🍲</span> Nos Kedjenou</h2>
             <ul>
-                <li>
-                    <span class="dish">Kedjenou de pondeuse ½</span>
-                    <span class="price">3000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Kedjenou de pondeuse</span>
-                    <span class="price">6000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Poulet Africain</span>
-                    <span class="price">8000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Pintade Bio</span>
-                    <span class="price">10 000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Machoiron D'eau Douce</span>
-                    <span class="price">7000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Carpe D'eau Douce</span>
-                    <span class="price">6000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Crabe</span>
-                    <span class="price">2000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Soupe du pêcheur</span>
-                    <span class="price">5000 F</span>
-                </li>
+                <li><div class="dish-row"><span class="dish">Kedjenou de pondeuse ½</span><span class="price">3000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Kedjenou de pondeuse</span><span class="price">6000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Poulet Africain</span><span class="price">8000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Pintade Bio</span><span class="price">10 000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Machoiron D'eau Douce</span><span class="price">7000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Carpe D'eau Douce</span><span class="price">6000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Crabe</span><span class="price">2000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Soupe du pêcheur</span><span class="price">5000 F</span></div></li>
             </ul>
         </section>
         <section class="menu-section">
             <h2><span class="icon">🔥</span> Nos Sautés</h2>
             <ul>
-                <li>
-                    <span class="dish">Marmite du pêcheur sauté</span>
-                    <span class="price">5000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Poulet Sauté</span>
-                    <span class="price">5000 F</span>
-                </li>
-                <li>
-                    <span class="dish">½ Poulet Sauté</span>
-                    <span class="price">3000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Pondeuse Sauté</span>
-                    <span class="price">6000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Crabe Braisé</span>
-                    <span class="price">3000 F</span>
-                </li>
+                <li><div class="dish-row"><span class="dish">Marmite du pêcheur sauté</span><span class="price">5000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Poulet Sauté</span><span class="price">5000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">½ Poulet Sauté</span><span class="price">3000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Pondeuse Sauté</span><span class="price">6000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Crabe Braisé</span><span class="price">3000 F</span></div></li>
             </ul>
         </section>
         <section class="menu-section">
             <h2><span class="icon">🍝</span> Nos Pâtes</h2>
             <ul>
-                <li class="pasta-title">
-                    <span>Spaghetti :</span>
-                </li>
-                <li>
-                    <span class="dish">Rognon</span>
-                    <span class="price">1000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Boulette</span>
-                    <span class="price">2000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Jambon fromage</span>
-                    <span class="price">3000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Viande</span>
-                    <span class="price">2000 F</span>
-                </li>
+                <li class="pasta-title"><span>Spaghetti :</span></li>
+                <li><div class="dish-row"><span class="dish">Rognon</span><span class="price">1000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Boulette</span><span class="price">2000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Jambon fromage</span><span class="price">3000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Viande</span><span class="price">2000 F</span></div></li>
             </ul>
         </section>
         <section class="menu-section">
-            <h2><span class="icon">🍺</span> Nos Bières</h2>
+            <h2><span class="icon">🍺</span> Nos Bières & Pressions</h2>
             <ul>
                 <li>
-                    <span class="dish">Bock</span>
-                    <span class="price">1000 F / 700 F</span>
+                    <div class="dish-row">
+                        <span class="dish">Bock</span>
+                        <span class="price-press">
+                            <span class="press-label">Bar</span>1000 F 
+                            <span class="press-label maquis">Maquis</span>700 F
+                        </span>
+                    </div>
                 </li>
                 <li>
-                    <span class="dish">Beaufort</span>
-                    <span class="price">1000 F</span>
+                    <div class="dish-row">
+                        <span class="dish">Beaufort</span>
+                        <span class="price">1000 F</span>
+                    </div>
                 </li>
                 <li>
-                    <span class="dish">Castel</span>
-                    <span class="price">1000 F / 500 F</span>
+                    <div class="dish-row">
+                        <span class="dish">Castel</span>
+                        <span class="price-press">
+                            <span class="press-label">Bar</span>1000 F
+                            <span class="press-label maquis">Maquis</span>500 F
+                        </span>
+                    </div>
                 </li>
                 <li>
-                    <span class="dish">Chill Bock</span>
-                    <span class="price">1000 F / 500 F</span>
+                    <div class="dish-row">
+                        <span class="dish">Chill Bock</span>
+                        <span class="price-press">
+                            <span class="press-label">Bar</span>1000 F
+                            <span class="press-label maquis">Maquis</span>500 F
+                        </span>
+                    </div>
                 </li>
                 <li>
-                    <span class="dish">Guinness</span>
-                    <span class="price">1000 F / 700 F</span>
+                    <div class="dish-row">
+                        <span class="dish">Guinness</span>
+                        <span class="price-press">
+                            <span class="press-label">Bar</span>1000 F
+                            <span class="press-label maquis">Maquis</span>700 F
+                        </span>
+                    </div>
                 </li>
                 <li>
-                    <span class="dish">Heineken</span>
-                    <span class="price">1000 F / 700 F</span>
+                    <div class="dish-row">
+                        <span class="dish">Heineken</span>
+                        <span class="price-press">
+                            <span class="press-label">Bar</span>1000 F
+                            <span class="press-label maquis">Maquis</span>700 F
+                        </span>
+                    </div>
                 </li>
                 <li>
-                    <span class="dish">Desperados</span>
-                    <span class="price">1000 F / 700 F</span>
+                    <div class="dish-row">
+                        <span class="dish">Desperados</span>
+                        <span class="price-press">
+                            <span class="press-label">Bar</span>1000 F
+                            <span class="press-label maquis">Maquis</span>700 F
+                        </span>
+                    </div>
                 </li>
             </ul>
         </section>
         <section class="menu-section">
             <h2><span class="icon">🍷</span> Nos Vins</h2>
             <ul>
-                <li>
-                    <span class="dish">Haussonan (rouge/blanc)</span>
-                    <span class="price">9 000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Côtes du Rhône</span>
-                    <span class="price">6000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Château de jalousie</span>
-                    <span class="price">7000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Carillondde</span>
-                    <span class="price">6000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Baron dariagnac</span>
-                    <span class="price">5000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Cuve</span>
-                    <span class="price"></span>
-                </li>
+                <li><div class="dish-row"><span class="dish">Haussonan (rouge/blanc)</span><span class="price">9 000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Côtes du Rhône</span><span class="price">6000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Château de jalousie</span><span class="price">7000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Carillondde</span><span class="price">6000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Baron dariagnac</span><span class="price">5000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Cuve</span><span class="price"></span></div></li>
             </ul>
         </section>
         <section class="menu-section">
             <h2><span class="icon">🥃</span> Nos Liqueurs</h2>
             <ul>
-                <li>
-                    <span class="dish">Bayles</span>
-                    <span class="price">25 000 F</span>
-                </li>
-                <li>
-                    <span class="dish">Jack Daniel's</span>
-                    <span class="price">25 000 F</span>
-                </li>
+                <li><div class="dish-row"><span class="dish">Bayles</span><span class="price">25 000 F</span></div></li>
+                <li><div class="dish-row"><span class="dish">Jack Daniel's</span><span class="price">25 000 F</span></div></li>
             </ul>
         </section>
     </main>
     <footer>
         <p>© 2025 Le Graya des anges – Saveurs &amp; Authenticité</p>
-        <div class="by-signature">by Le Graya des anges</div>
+        <div class="by-signature">by Yaël Design</div>
     </footer>
     <script>
         // JS prêt pour animations ou fonctionnalités si besoin
