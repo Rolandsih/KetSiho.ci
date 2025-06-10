@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Graya des anges - Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9800;
+            --secondary: #FFD700;
+            --background: linear-gradient(135deg, #fff9ef 0%, #fff5d0 100%);
+            --card-bg: rgba(255, 255, 255, 0.78);
+            --glass-border: rgba(255, 223, 112, 0.35);
+            --text: #2d1a05;
+            --accent: #F57C00;
+            --shadow: 0 10px 30px 0 rgba(31, 38, 135, 0.08);
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+        body {
+            max-width: 540px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.3rem 1rem 1.6rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: 36px;
+            border-bottom-right-radius: 36px;
+            box-shadow: 0 8px 28px 0 rgba(255, 152, 0, 0.13);
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 1px 0 #ffda8e;
+        }
+        .subtitle {
+            font-size: 1.18rem;
+            font-weight: 400;
+            margin-top: 0.9rem;
+            letter-spacing: 0.6px;
+            opacity: .95;
+        }
+        nav.menu-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5em;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, #fffbe7f7 80%, #ffe082ee 100%);
+            box-shadow: 0 2px 7px 0 rgba(255, 215, 0, 0.08);
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            padding: 0.42em 0 0.22em 0;
+            margin-bottom: 0.9em;
+        }
+        nav.menu-nav a {
+            color: #8d5500;
+            background: #fffde4;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.07em;
+            padding: 0.45em 1.15em;
+            border-radius: 1.5em;
+            transition: background 0.13s, color 0.13s, box-shadow 0.14s;
+        }
+        nav.menu-nav a:hover, nav.menu-nav a.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 10px #ffb3002a;
+        }
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.1em;
+            margin: 2.1rem 0 1rem 0;
+            padding-bottom: 0.6rem;
+        }
+        .contact-buttons {
+            display: flex;
+            gap: 1.2em;
+        }
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.47em;
+            padding: 0.74em 1.22em;
+            background: linear-gradient(90deg, #ffe082 60%, #ffd700 100%);
+            color: #964800;
+            border-radius: 2em;
+            font-weight: 700;
+            font-size: 1.11em;
+            border: none;
+            text-decoration: none;
+            box-shadow: 0 2px 16px rgba(255, 215, 0, 0.10);
+            transition: background 0.17s, box-shadow 0.17s;
+        }
+        .contact-btn:hover {
+            background: linear-gradient(90deg, #ffd700 60%, #ffe082 100%);
+            box-shadow: 0 4px 18px rgba(255, 215, 0, 0.17);
+            transform: translateY(-2px) scale(1.05);
+        }
+        .contact-icon {
+            font-size: 1.18em;
+        }
+        .facebook-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.4em;
+            height: 2.4em;
+            border-radius: 50%;
+            background: #4267B2;
+            color: white;
+            text-decoration: none;
+            font-size: 1.45em;
+            transition: background 0.16s, box-shadow .14s;
+            box-shadow: 0 2px 10px #4267b20d;
+        }
+        .facebook-link:hover {
+            background: #29487d;
+            box-shadow: 0 5px 14px #29487d33;
+        }
+        main {
+            flex: 1;
+            padding: 1.5rem 0.5rem 1.1rem 0.5rem;
+        }
+        .menu-section {
+            background: var(--card-bg);
+            border-radius: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.1rem;
+            padding: 1.7rem 1.4rem 1.1rem 1.4rem;
+            border: 1.5px solid var(--glass-border);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(.77,.01,.3,1), transform 0.7s cubic-bezier(.77,.01,.3,1);
+        }
+        .menu-section.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .menu-section h2 {
+            margin-top: 0;
+            margin-bottom: 1.1rem;
+            color: var(--accent);
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: 0.7px;
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            text-shadow: 0 2px 8px #ffd70022;
+        }
+        .menu-section h2 .icon {
+            font-size: 1.44em;
+        }
+        .menu-section ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .menu-section li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.82rem 0;
+            border-bottom: 1px solid #ffe0b2a0;
+            font-size: 1.14rem;
+            transition: background 0.15s;
+        }
+        .menu-section li:last-child {
+            border-bottom: none;
+        }
+        .menu-section li:hover:not(.pasta-title):not(.desc) {
+            background: #fff7d760;
+            border-radius: 1em;
+            box-shadow: 0 2px 8px #ffb3001a;
+            cursor: pointer;
+        }
+        .dish {
+            font-weight: 600;
+            color: var(--text);
+            text-shadow: 0 1px 2px #ffe08233;
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+        }
+        .desc {
+            font-size: 0.99em;
+            color: #a38b45;
+            margin-top: -0.7em;
+            margin-bottom: 0.3em;
+            display: block;
+            width: 100%;
+            font-style: italic;
+            letter-spacing: 0.1em;
+        }
+        .price {
+            font-weight: 700;
+            color: var(--accent);
+            margin-left: 1.5rem;
+            background: linear-gradient(90deg, #fffde4, #ffd700a1 80%);
+            padding: 0.23em 0.85em;
+            border-radius: 1em;
+            box-shadow: 0 2px 8px #ffd70013;
+            font-size: 1.09em;
+            letter-spacing: 1.5px;
+        }
+        .pasta-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.12rem;
+            padding-bottom: 0.2rem;
+            border-bottom: none;
+            justify-content: flex-start;
+            letter-spacing: 0.08em;
+        }
+        .menu-section:before {
+            content: "";
+            position: absolute;
+            top: -30px;
+            right: -60px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #ffd7005d 35%, transparent 80%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            box-shadow: 0 2px 10px #ffb30035;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 99;
+            transition: opacity 0.17s;
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        footer {
+            text-align: center;
+            font-size: 1.08rem;
+            color: #ba9e46;
+            padding: 1.18rem 0 0.6rem 0;
+            letter-spacing: 0.47px;
+            font-weight: 500;
+        }
+        .by-signature {
+            color: #e7a800;
+            font-size: 1.09em;
+            font-weight: 800;
+            margin-top: 0.45em;
+            letter-spacing: 1.1px;
+            opacity: 0.82;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        @media (max-width: 600px){
+            body {
+                box-shadow: none;
+                max-width: 100vw;
+            }
+            main {
+                padding: 0.7rem 0.1rem 1rem 0.1rem;
+            }
+            .menu-section {
+                padding: 1.1rem 0.6rem 0.7rem 0.6rem;
+            }
+            header {
+                padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+            }
+            .contact-section {
+                gap: 0.7em;
+            }
+            nav.menu-nav {
+                font-size: 0.97em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Le Graya des anges</h1>
+        <div class="subtitle">🌴 Découvrez notre menu africain maison 🌴</div>
+    </header>
+    <nav class="menu-nav">
+        <a href="#placali">Placali</a>
+        <a href="#kedjenou">Kedjenou</a>
+        <a href="#saute">Sautés</a>
+        <a href="#pates">Pâtes</a>
+        <a href="#bieres">Bières</a>
+        <a href="#vins">Vins</a>
+        <a href="#liqueurs">Liqueurs</a>
+    </nav>
+
+    <div class="contact-section">
+        <div class="contact-buttons">
+            <a class="contact-btn" href="tel:0173280636">
+                <span class="contact-icon">📞</span> 01 73 28 06 36
+            </a>
+        </div>
+        <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61574053164241&mibextid=ZbWKwL" target="_blank" title="Facebook">
+            <svg viewBox="0 0 32 32" width="1.3em" height="1.3em" fill="currentColor" aria-hidden="true">
+                <circle cx="16" cy="16" r="16" fill="#4267B2"/>
+                <path d="M21.5 16h-3v9h-3v-9h-2v-3h2v-2c0-1.7 1-3 3-3h2v3h-2v2h3l-1 3z" fill="#fff"/>
+            </svg>
+        </a>
+    </div>
+
+    <main>
+        <section id="placali" class="menu-section">
+            <h2><span class="icon">🍛</span> Placali</h2>
+            <ul>
+                <li>
+                    <span class="dish">Placali standard</span>
+                    <span class="price">2000 F</span>
+                </li>
+                <li>
+                    <span class="desc">(Crabe / Pklo / Poisson fumé)</span>
+                </li>
+                <li>
+                    <span class="dish">Placali Caviar</span>
+                    <span class="price">3000 F</span>
+                </li>
+                <li>
+                    <span class="desc">(Crabe / Pklo / Mangne Sec / Poisson / Tripes)</span>
+                </li>
+                <li>
+                    <span class="dish">Placali VIP</span>
+                    <span class="price">5000 F</span>
+                </li>
+                <li>
+                    <span class="desc">(Queue de boeuf / escargots / Crabe / Pklo / Mangne Sec / poisson fumé / tripes)</span>
+                </li>
+                <li>
+                    <span class="dish">Placali VVIP</span>
+                    <span class="price">10 000 F</span>
+                </li>
+                <li>
+                    <span class="desc">(Agouti / biche / escargots Queue de boeuf / Crabe poilu / Crabe de mer / Tête de bœuf / Patte  de Bœuf / Tripes / Pklo / Poisson /  Mangne Sec)</span>
+                </li>
+            </ul>
+        </section>
+        <section id="kedjenou" class="menu-section">
+            <h2><span class="icon">🍲</span> Nos Kedjenou</h2>
+            <ul>
+                <li>
+                    <span class="dish">Kedjenou de pondeuse ½</span>
+                    <span class="price">3000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Kedjenou de pondeuse</span>
+                    <span class="price">6000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Poulet Africain</span>
+                    <span class="price">8000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Pintade Bio</span>
+                    <span class="price">10 000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Machoiron D'eau Douce</span>
+                    <span class="price">7000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Carpe D'eau Douce</span>
+                    <span class="price">6000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Crabe</span>
+                    <span class="price">2000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Soupe du pêcheur</span>
+                    <span class="price">5000 F</span>
+                </li>
+            </ul>
+        </section>
+        <section id="saute" class="menu-section">
+            <h2><span class="icon">🔥</span> Nos Sautés</h2>
+            <ul>
+                <li>
+                    <span class="dish">Marmite du pêcheur sauté</span>
+                    <span class="price">5000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Poulet Sauté</span>
+                    <span class="price">5000 F</span>
+                </li>
+                <li>
+                    <span class="dish">½ Poulet Sauté</span>
+                    <span class="price">3000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Pondeuse Sauté</span>
+                    <span class="price">6000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Crabe Braisé</span>
+                    <span class="price">3000 F</span>
+                </li>
+            </ul>
+        </section>
+        <section id="pates" class="menu-section">
+            <h2><span class="icon">🍝</span> Nos Pâtes</h2>
+            <ul>
+                <li class="pasta-title">
+                    <span>Spaghetti :</span>
+                </li>
+                <li>
+                    <span class="dish">Rognon</span>
+                    <span class="price">1000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Boulette</span>
+                    <span class="price">2000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Jambon fromage</span>
+                    <span class="price">3000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Viande</span>
+                    <span class="price">2000 F</span>
+                </li>
+            </ul>
+        </section>
+        <section id="bieres" class="menu-section">
+            <h2><span class="icon">🍺</span> Nos Bières</h2>
+            <ul>
+                <li>
+                    <span class="dish">Bock</span>
+                    <span class="price">1000 F / 700 F</span>
+                </li>
+                <li>
+                    <span class="dish">Beaufort</span>
+                    <span class="price">1000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Castel</span>
+                    <span class="price">1000 F / 500 F</span>
+                </li>
+                <li>
+                    <span class="dish">Chill Bock</span>
+                    <span class="price">1000 F / 500 F</span>
+                </li>
+                <li>
+                    <span class="dish">Guinness</span>
+                    <span class="price">1000 F / 700 F</span>
+                </li>
+                <li>
+                    <span class="dish">Heineken</span>
+                    <span class="price">1000 F / 700 F</span>
+                </li>
+                <li>
+                    <span class="dish">Desperados</span>
+                    <span class="price">1000 F / 700 F</span>
+                </li>
+            </ul>
+        </section>
+        <section id="vins" class="menu-section">
+            <h2><span class="icon">🍷</span> Nos Vins</h2>
+            <ul>
+                <li>
+                    <span class="dish">Haussonan (rouge/blanc)</span>
+                    <span class="price">9 000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Côtes du Rhône</span>
+                    <span class="price">6000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Château de jalousie</span>
+                    <span class="price">7000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Carillondde</span>
+                    <span class="price">6000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Baron dariagnac</span>
+                    <span class="price">5000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Cuve</span>
+                    <span class="price"></span>
+                </li>
+            </ul>
+        </section>
+        <section id="liqueurs" class="menu-section">
+            <h2><span class="icon">🥃</span> Nos Liqueurs</h2>
+            <ul>
+                <li>
+                    <span class="dish">Bayles</span>
+                    <span class="price">25 000 F</span>
+                </li>
+                <li>
+                    <span class="dish">Jack Daniel's</span>
+                    <span class="price">25 000 F</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <button class="scroll-top" title="Remonter en haut" aria-label="Remonter en haut">⬆️</button>
+    <footer>
+        <p>© 2025 Le Graya des anges – Saveurs &amp; Authenticité</p>
+        <div class="by-signature">by Yaël disign</div>
+    </footer>
+    <script>
+        // Apparition des sections au scroll
+        function showOnScroll() {
+            const sections = document.querySelectorAll('.menu-section');
+            const trigger = window.innerHeight * 0.92;
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if(rect.top < trigger) sec.classList.add('visible');
+            });
+        }
+        document.addEventListener('scroll', showOnScroll);
+        window.addEventListener('DOMContentLoaded', showOnScroll);
+
+        // Scroll-to-top
+        const scrollBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 250) scrollBtn.classList.add('visible');
+            else scrollBtn.classList.remove('visible');
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({top:0, behavior:'smooth'});
+        });
+
+        // Highlight nav
+        const navLinks = document.querySelectorAll('.menu-nav a');
+        const sections = Array.from(document.querySelectorAll('.menu-section'));
+        window.addEventListener('scroll', () => {
+            let idx = sections.findIndex((section, i) => {
+                const nextSection = sections[i+1];
+                const top = section.getBoundingClientRect().top + window.scrollY - 70;
+                const nextTop = nextSection ? nextSection.getBoundingClientRect().top + window.scrollY - 70 : Infinity;
+                return window.scrollY >= top && window.scrollY < nextTop;
+            });
+            navLinks.forEach((link, i) => link.classList.toggle('active', i===idx));
+        });
+    </script>
+</body>
+</html>
